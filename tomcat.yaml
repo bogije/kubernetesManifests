@@ -97,22 +97,3 @@ spec:
         resources:
           requests:
             memory: 975Mi
-        volumeMounts:
-        - mountPath: /usr/local/tomcat/webapps/ROOT
-          name: jamfpro-build
-        - mountPath: /usr/local/logs
-          name: jamfpro-log-data-vol
-          subPath: jamfpro-logs
-        - mountPath: /usr/local/tomcat/logs
-          name: jamfpro-log-data-vol
-          subPath: tomcat-logs
-  volumeClaimTemplates:
-  - metadata:
-      name: jamfpro-log-data-vol
-    spec:
-      accessModes:
-      - ReadWriteOnce
-      resources:
-        requests:
-          storage: 1Gi
-      storageClassName: log-storage

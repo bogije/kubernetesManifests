@@ -50,32 +50,5 @@ spec:
         resources:
           requests:
             memory: 100Mi
-        volumeMounts:
-        - mountPath: /var/lib/mysql
-          name: jamfpro-mysql-data-vol
-          subPath: mysql
-        - mountPath: /var/log/mysql
-          name: jamfpro-mysql-data-vol
-          subPath: mysql-logs
-        volumeMounts:
-        - mountPath: /var/lib/mysql
-          name: jamfpro-mysql-data-vol
-          subPath: mysql
-        - mountPath: /var/log/mysql
-          name: jamfpro-mysql-data-vol
-          subPath: mysql-logs
-      volumes:
-      - name: jamfpro-log-vol
-        emptyDir: {}
   updateStrategy:
     type: RollingUpdate
-  volumeClaimTemplates:
-  - metadata:
-      name: jamfpro-mysql-data-vol
-    spec:
-      accessModes:
-      - ReadWriteOnce
-      resources:
-        requests:
-          storage: 1Gi
-      storageClassName: mysql-storage
